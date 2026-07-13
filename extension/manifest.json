@@ -15,6 +15,7 @@
       "core/state.js",
       "core/grammar.js",
       "ui/tooltip.js",
+      "ui/keyboard.js",
       "ui/ui.js",
       "core/replace.js",
       "content/content.js"

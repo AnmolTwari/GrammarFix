@@ -6,6 +6,12 @@ function createSuggestionPopup(message, suggestion, current, total) {
 
     popup.id = "grammarfix-popup";
 
+    const rect = GrammarState.target.getBoundingClientRect();
+
+    popup.style.position = "fixed";
+    popup.style.top = `${rect.bottom + 8}px`;
+    popup.style.left = `${rect.left}px`;
+
     popup.innerHTML = `
         <h3>GrammarFix Beta</h3>
 
