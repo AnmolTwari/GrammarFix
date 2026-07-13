@@ -1,0 +1,125 @@
+#grammarfix-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 340px;
+
+    background: #ffffff;
+    color: #222;
+
+    border-radius: 14px;
+    border: 1px solid #dbe3f0;
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.18);
+
+    padding: 16px;
+    z-index: 2147483647;
+
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+#grammarfix-popup h3 {
+    margin: 0 0 6px;
+    color: #1d4ed8;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+}
+
+#grammarfix-popup small {
+    display: block;
+    margin-bottom: 12px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+#grammarfix-popup p {
+    margin: 0 0 16px;
+    color: #334155;
+    line-height: 1.4;
+}
+
+#grammarfix-popup button {
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.18s ease, border-color 0.18s ease,
+        box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+#grammarfix-popup button:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.3);
+    outline-offset: 2px;
+}
+
+.grammarfix-btn,
+#applySuggestion {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+
+    background: #2563eb;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+}
+
+.grammarfix-btn:hover,
+#applySuggestion:hover {
+    background: #1d4ed8;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+    transform: translateY(-1px);
+}
+
+.gf-nav {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.gf-nav button {
+    flex: 1;
+
+    padding: 10px;
+
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    color: #222;
+
+    border-radius: 8px;
+}
+
+.gf-nav button:hover {
+    background: #e8eef9;
+    border-color: #bfdbfe;
+}
+
+.grammarfix-ignore,
+#ignoreSuggestion {
+    width: 100%;
+    padding: 10px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    background: white;
+    color: #444;
+}
+
+.grammarfix-ignore:hover,
+#ignoreSuggestion:hover {
+    background: #f8fafc;
+    border-color: #94a3b8;
+}
+
+.gf-nav button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #ececec;
+}
+
+.gf-nav button:disabled:hover {
+    background: #ececec;
+    border-color: #ccc;
+    transform: none;
+}

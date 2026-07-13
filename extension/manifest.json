@@ -3,18 +3,26 @@
   "name": "GrammarFix",
   "version": "1.0.0",
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup/popup.html"
   },
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background/background.js"
   },
   "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"]
-    }
-  ],
-  "host_permissions": [
-    "http://localhost:8081/*"
-  ]
+  {
+    "matches": ["<all_urls>"],
+    "js": [
+      "core/state.js",
+      "core/grammar.js",
+      "ui/tooltip.js",
+      "ui/ui.js",
+      "core/replace.js",
+      "content/content.js"
+    ],
+    "css": [
+      "ui/suggestion.css"
+    ]
+  }
+],
+  "host_permissions": ["http://localhost:8081/*"]
 }
