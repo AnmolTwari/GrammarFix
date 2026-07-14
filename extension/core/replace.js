@@ -24,14 +24,14 @@ function applyCorrection() {
     const newText = before + replacement + after;
 
     if (GrammarState.target.isContentEditable) {
-        GrammarState.target.innerText = newText;
+        GrammarState.target.textContent = newText;
     } else {
         GrammarState.target.value = newText;
     }
 
-    // Close current popup
+    removeHighlight(GrammarState.currentIndex);
+
     removeSuggestionPopup();
 
-    // Trigger grammar check again
     checkCurrentText(GrammarState.target);
 }

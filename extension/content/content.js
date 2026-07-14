@@ -1,12 +1,20 @@
 console.log("GrammarFix Loaded!");
+console.log("chrome =", chrome);
+console.log("chrome.runtime =", chrome.runtime);
 
 let debounceTimer;
 
-async function checkCurrentText(element) {
+async function checkCurrentText(element = GrammarState.target) {
+
+    clearHighlights();
 
     const text = element.isContentEditable
         ? element.innerText
         : element.value;
+
+    if (GrammarState.text !== text) {
+        GrammarState.ignoredSuggestions = [];
+    }
 
     if (!text.trim()) {
         removeSuggestionPopup();
@@ -15,13 +23,18 @@ async function checkCurrentText(element) {
 
     const result = await checkGrammar(text);
 
+    result.matches = result.matches.filter(match =>
+        !GrammarState.ignoredSuggestions.includes(match.offset)
+    );
+
     GrammarState.target = element;
     GrammarState.text = text;
     GrammarState.matches = result.matches;
     GrammarState.currentIndex = 0;
 GrammarState.selectedMatch = result.matches[0] || null;
 
-    showSuggestions(result.matches);
+renderHighlights(result.matches);
+showSuggestions(result.matches);
 }
 
 document.addEventListener("input", (event) => {

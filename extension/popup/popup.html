@@ -9,13 +9,46 @@
 </head>
 <body>
 
-    <h1>GrammarFix</h1>
+    <div class="container">
 
-    <p>Welcome to GrammarFix!</p>
+        <h2>🟦 GrammarFix</h2>
 
-    <button id="checkBtn">
-        Check Grammar
-    </button>
+        <div class="status">
+            <span id="statusDot"></span>
+            <span id="statusText">Running</span>
+        </div>
+
+        <p class="version">Version 1.0.0</p>
+
+        <div class="stats">
+
+            <div class="card">
+                <h3 id="wordCount">0</h3>
+                <p>Words</p>
+            </div>
+
+            <div class="card">
+                <h3 id="characterCount">0</h3>
+                <p>Characters</p>
+            </div>
+
+            <div class="card">
+                <h3 id="issueCount">0</h3>
+                <p>Issues</p>
+            </div>
+
+            <div class="card">
+                <h3 id="score">100</h3>
+                <p>Score</p>
+            </div>
+
+        </div>
+
+        <button id="checkNow">Check Current Page</button>
+
+        <button id="settings" class="settings">Settings</button>
+
+    </div>
 
     <script src="popup.js"></script>
 

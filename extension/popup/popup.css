@@ -1,16 +1,84 @@
 body {
-    width: 300px;
-    padding: 16px;
+    margin: 0;
+    width: 340px;
     font-family: Arial, sans-serif;
+    background: #f5f7fb;
 }
 
-h1 {
-    margin-top: 0;
+.container {
+    padding: 20px;
+}
+
+h2 {
+    margin: 0 0 20px;
     color: #2563eb;
 }
 
-button {
+.status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.version {
+    margin: -12px 0 20px;
+    color: #666;
+    font-size: 13px;
+}
+
+#statusDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #22c55e;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 26px;
+    color: #2563eb;
+}
+
+.card p {
+    margin: 8px 0 0;
+    color: #666;
+}
+
+#checkNow {
     width: 100%;
-    padding: 10px;
+    margin-top: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
     cursor: pointer;
+    font-size: 15px;
+}
+
+.settings {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: #2563eb;
+    cursor: pointer;
+    font-size: 14px;
 }

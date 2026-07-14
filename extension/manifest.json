@@ -2,28 +2,34 @@
   "manifest_version": 3,
   "name": "GrammarFix",
   "version": "1.0.0",
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
   "action": {
     "default_popup": "popup/popup.html"
   },
+  "options_page": "options/options.html",
   "background": {
     "service_worker": "background/background.js"
   },
   "content_scripts": [
-  {
-    "matches": ["<all_urls>"],
-    "js": [
-      "core/state.js",
-      "core/grammar.js",
-      "ui/tooltip.js",
-      "ui/keyboard.js",
-      "ui/ui.js",
-      "core/replace.js",
-      "content/content.js"
-    ],
-    "css": [
-      "ui/suggestion.css"
-    ]
-  }
-],
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "core/state.js",
+        "core/grammar.js",
+        "ui/tooltip.js",
+        "ui/highlight.js",
+        "ui/keyboard.js",
+        "ui/ui.js",
+        "core/replace.js",
+        "content/content.js"
+      ],
+      "css": ["ui/suggestion.css"]
+    }
+  ],
   "host_permissions": ["http://localhost:8081/*"]
 }

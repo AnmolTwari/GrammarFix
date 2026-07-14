@@ -10,6 +10,12 @@ const GrammarState = {
 
     selectedMatch: null,
 
-    language: "en-US"
+    language: "en-US",
+
+    ignoredSuggestions: [],
+
+    highlights: [],
+
+    popupRect: null
 
 };

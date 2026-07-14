@@ -6,41 +6,88 @@ function createSuggestionPopup(message, suggestion, current, total) {
 
     popup.id = "grammarfix-popup";
 
-    const rect = GrammarState.target.getBoundingClientRect();
+    popup.innerHTML = `
+<div class="gf-header">
+    <span class="gf-logo">🟦 GrammarFix</span>
+
+    <button id="gf-close">✕</button>
+</div>
+
+<div class="gf-body">
+
+    <div class="gf-message">
+        ⚠ ${message}
+    </div>
+
+    <div class="gf-label">
+        Replace with
+    </div>
+
+    <button
+        id="applySuggestion"
+        class="grammarfix-btn">
+
+        ✔ ${suggestion}
+
+    </button>
+
+</div>
+
+<div class="gf-footer">
+
+    <button
+        id="ignoreSuggestion"
+        class="grammarfix-ignore">
+
+        Ignore
+
+    </button>
+
+    <div class="gf-counter">
+
+        <button id="prevIssue">◀</button>
+
+        <span>
+
+            ${current}/${total}
+
+        </span>
+
+        <button id="nextIssue">▶</button>
+
+    </div>
+
+</div>
+    `;
+
+    const rect = GrammarState.popupRect ??
+                 GrammarState.target.getBoundingClientRect();
 
     popup.style.position = "fixed";
-    popup.style.top = `${rect.bottom + 8}px`;
+    popup.style.top = `${rect.bottom + 10}px`;
     popup.style.left = `${rect.left}px`;
 
-    popup.innerHTML = `
-        <h3>GrammarFix Beta</h3>
+    if (rect.bottom + 250 > window.innerHeight) {
+        popup.style.top =
+            `${rect.top - 220}px`;
+    }
 
-        <small>Issue ${current} of ${total}</small>
+    const popupWidth = 340;
+    const margin = 10;
 
-        <p>${message}</p>
-
-        <button id="applySuggestion">
-            ✔ ${suggestion}
-        </button>
-
-        <div class="gf-nav">
-
-            <button id="prevIssue">◀ Previous</button>
-
-            <button id="nextIssue">Next ▶</button>
-
-        </div>
-
-        <button id="ignoreSuggestion">
-            Ignore this suggestion
-        </button>
-    `;
+    if (rect.left + popupWidth > window.innerWidth) {
+        popup.style.left = `${window.innerWidth - popupWidth - margin}px`;
+    }
 
     document.body.appendChild(popup);
 
     document.getElementById("applySuggestion").onclick = applyCorrection;
 
-    document.getElementById("ignoreSuggestion").onclick = removeSuggestionPopup;
+    document.getElementById("ignoreSuggestion").onclick = ignoreCurrentSuggestion;
+
+    document
+        .getElementById("gf-close")
+        .onclick = removeSuggestionPopup;
 
     const prevButton = document.getElementById("prevIssue");
     const nextButton = document.getElementById("nextIssue");
@@ -78,6 +125,7 @@ function createSuggestionPopup(message, suggestion, current, total) {
     };
 
 }
+
 function removeSuggestionPopup() {
 
     const popup = document.getElementById("grammarfix-popup");
