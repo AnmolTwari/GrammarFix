@@ -1,7 +1,3 @@
-console.log("GrammarFix Loaded!");
-console.log("chrome =", chrome);
-console.log("chrome.runtime =", chrome.runtime);
-
 let debounceTimer;
 
 async function checkCurrentText(element = GrammarState.target) {
